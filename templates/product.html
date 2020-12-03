@@ -1,0 +1,56 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+{# <div class="dashboard-wrapper"> #}
+<div class="container-fluid  dashboard-content" style = "margin-top:30px;">
+<div class="row">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="page-header">
+<h2 class="pageheader-title">Data Tables</h2>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="card">
+<h5 class="card-header">생산 제품</h5>
+<div class="card-body" style="text-align:center;">
+<div class="table-responsive">
+<table class="table table-striped table-bordered first">
+    <thead>
+    <tr>
+    <th>PRODUCT_ID</th>
+    <th>PRODUCT_TYPE</th>
+    <th>PRODUCT_NAME</th>
+    <th>PROCESS_ID</th>
+    <th>LOT_SIZE</th>
+    <th>INPUT_BATCH_SIZE</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for data in data_list%}
+            <tr>
+                <td>{{data[0]}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[2]}}</td>
+                <td>{{data[3]}}</td>
+                <td>{{data[4]}}</td>
+                <td>{{data[5]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+{% endblock %}

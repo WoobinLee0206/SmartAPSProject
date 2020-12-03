@@ -1,0 +1,19 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+
+<div id="chart" class="chart" style='height: 625px;'>
+    
+</div>
+{% endblock %}
+
+{%block extra_scripts %}
+ 
+    <script type="text/javascript">
+         
+        var graphs = {{graph_json | safe}};
+        
+        Plotly.plot('chart',graphs,{});        
+ 
+    </script>
+{%endblock%}

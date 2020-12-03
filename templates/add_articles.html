@@ -1,0 +1,35 @@
+{% extends "layouts.html" %}
+{% block body %}
+<div class = "container">
+<!-- horizontal Basic Forms Start -->
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h4 class="text-blue h4">Writing Lists Board</h4>
+                <p class="mb-30">Input Your Words</p>
+            </div>
+        </div>
+        <form action = "/add_articles" method = "POST" onsubmit = "return confirm('이대로 작성하시겠습니까?')">
+            <div class="form-group">
+                <label>TITLE</label>
+                <input class="form-control" type="text" name = 'title' placeholder="input title" required>
+            </div>
+            <div class="form-group">
+                <label>DESCRIPTION</label>
+                <textarea class="form-control" name = 'body' placeholder="input description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>AUTHOR</label>
+                <input class="form-control" name='author' type="text" placeholder="input author" required>
+            </div>
+            <div class = "form-group">
+                <input class = "btn btn-primary btn-lg btn-block" type = "submit" value = "작성 완료">
+            </div>
+            <div class = "form-group">
+                <a class = "btn btn-danger btn-lg btn-block" href="/articles"> 돌아가기 </a>
+            </div>
+        </form>
+    </div>
+<!-- horizontal Basic Forms End -->
+</div>
+{% endblock %}

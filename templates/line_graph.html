@@ -1,0 +1,47 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+
+<select id='filter_eqp' onchange="javascript:changePageBySelect()">
+    <option value='all'>ALL</option>
+    {{active_eqp_id}}
+    {%for eqp in eqp_list%}
+    
+        {% if active_eqp_id==eqp[0] %}
+            <option selected='selected' value={{eqp[0]}} > {{eqp[0]}} </option>
+        {% else  %}
+            <option value="{{eqp[0]}}"  >{{ eqp[0] }}</option>
+        {% endif %}
+    
+    {%endfor%}
+</select>
+ <div id="chart" class="chart" style='height: 650px;'>
+    </div>
+{% endblock %}
+
+{%block extra_scripts %}
+ 
+    <script type="text/javascript">
+         
+        var graphs = {{graph_json | safe}};
+        
+        Plotly.plot('chart',graphs,{});        
+ 
+    </script>
+    <script>
+        function changePageBySelect(){
+            // 현재 선택된 eqp-id를 가져온다.
+            var selectbox = document.getElementById('filter_eqp')
+            var choices = selectbox.options[selectbox.selectedIndex];
+            console.log(selectbox.options)
+            console.log(choices)
+
+            var value = choices.getAttribute('value')
+
+            // eqp_id를 가지고 요청을 보낸다.
+            window.location.href=`http://localhost:8000/graph?eqp_id=${value}`
+
+            
+        }
+    </script>
+{%endblock%}

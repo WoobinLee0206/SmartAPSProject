@@ -1,0 +1,44 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>ADMIN PAGE</h1>
+    <div class="jumbotron text-center">
+          <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-user mr-1"></i>유저 목록
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>name</th>
+                                <th>username</th>
+                                <th>email</th>
+                                <th>LEVEL</th>
+                                <th>DELETE</th>
+                            </tr>
+                        </thead>
+                     
+                        <tbody>
+                          {% for users in data %}
+                            <tr>
+                              <th scope="row">{{ users[0] }}</th>
+                              <td><a href="/user/{{users[0]}}">{{ users[1] }}</a></td>
+                              <td>{{ users[2] }}</td>
+                              <td>{{ users[3] }}</td>
+                              <td>{{ users[6] }}</td>
+                              <td><form action="/delete/{{users[0]}}" method="POST" onsubmit="return confirm('정말 삭제하시겠습니까?')"><button type="submit" class="btn btn-danger">DELETE</button></form></td>
+                            </tr>
+                        {% endfor %}
+                          </tbody>
+                        </table>
+                        <a href="/add_articles" class="btn btn-success">유저 추가</a>
+                        </div>
+                        </div>
+                        </div>
+      </div>
+</div>
+{% endblock %}

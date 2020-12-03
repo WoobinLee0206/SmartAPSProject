@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/fonts/circular-std/style.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='libs/css/style.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/fonts/fontawesome/css/fontawesome-all.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/charts/chartist-bundle/chartist.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/charts/morris-bundle/morris.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/charts/c3charts/c3.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='vendor/fonts/flag-icon-css/flag-icon.min.css')}}" />
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+  <body style = "background-color:#fff;">
+    {% include "navbar.html" %}
+    <!-- Content here -->
+    <div style="margin-left:270px; margin-top:60px; margin-left:264px; height:600px;">
+    {% block body %} {% endblock %}
+
+    </div>
+    <br />
+
+    {% block scripts %}
+
+{# <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script> #}
+
+{# <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="../assets/libs/js/main-js.js"></script> #}
+
+
+<script src="{{url_for('static', filename='vendor/jquery/jquery-3.3.1.min.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/slimscroll/jquery.slimscroll.js')}}"></script>
+
+<script src="{{url_for('static', filename='libs/js/main-js.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/charts/chartist-bundle/chartist.min.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/charts/sparkline/jquery.sparkline.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/charts/morris-bundle/raphael.min.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/charts/morris-bundle/morris.js')}}"></script>
+
+<script src="{{url_for('static', filename='vendor/charts/c3charts/c3.min.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/charts/c3charts/d3-5.4.0.min.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/charts/c3charts/C3chartjs.js')}}"></script>
+<script src="{{url_for('static', filename='libs/js/dashboard-ecommerce.js')}}"></script>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+
+   <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- Plotly.js -->
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
+
+{% endblock %}
+{% block extra_scripts%}
+{%endblock%}
+</body>
+
+
+</html>

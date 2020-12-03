@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="Interval"></div>
+    <button onclick="startInterval()" >시작</button>
+    <button onclick="stopInterval()" >정지</button>
+    <script>
+        function printData() {
+            $(document).ready(function(){
+                $.get('http://localhost:8000/arduino' , function (result) {
+                console.log("fwfwef")
+                console.log(JSON.parse(result))
+                dataArray = JSON.parse(result)
+                randomNum = Math.random()
+                document.getElementById("Interval").innerHTML=`<h1>${dataArray[dataArray.length -1]}</h1>`
+            })
+        })
+            }
+           
+        function startInterval() {
+            printData()
+            intervalId = setInterval(printData, 5000)
+        }
+
+
+        function stopInterval() {
+            
+            clearInterval(intervalId)
+        }
+    </script>
+</body>
+</html>

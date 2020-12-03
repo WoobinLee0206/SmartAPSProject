@@ -1,0 +1,33 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+
+<div class="splash-container">
+<div class="card">
+<div class="card-header text-center"><a class="navbar-brand" href="/">Register</a><span class="splash-description">Please enter your user information.</span></div>
+<div class="card-body">
+<form method="POST" action="/register" onsubmit="return confirm('회원가입 하시겠습니까?')">
+<div class="form-group">
+<input type="text" class="form-control form-control-lg" name='name' placeholder="enter your name" required>
+</div>
+<div class="form-group">
+<input type="text" class="form-control form-control-lg" name='username' placeholder="enter your username" required>
+</div>
+<div class="form-group">
+<input type="text" class="form-control form-control-lg" name='email' placeholder="enter your email" required>
+</div>
+<div class="form-group">
+<input type="password" class="form-control form-control-lg" name='password' placeholder="**********" required>
+</div>
+<div class="form-group">
+<input type="password" class="form-control form-control-lg" name='re_password' placeholder="**********" required>
+</div>
+
+<button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

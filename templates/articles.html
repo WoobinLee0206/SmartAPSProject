@@ -1,0 +1,46 @@
+{% extends "layouts.html" %}
+{% block body %}
+    <div class="jumbotron text-center">
+    <h1 class="display-4"><i class="fas fa-book mr-1"></i> ARTICLES PAGE</h1>
+    <p class="lead">This Application is build using by python and Flask Framework</p>
+    <hr class="my-4">
+     
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-list mr-1"></i>
+            게시판 리스트
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>DESCRIPTION</th>
+                            <th>AUTHOR</th>
+                            <th>DATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+               
+                    <tbody>
+                      {% for article in articles %}
+                        <tr>
+                          <th scope="row">{{ article[0] }}</th>
+                          <td><a href="/article/{{article[0]}}">{{ article[1] }}</a></td>
+                          <td>{{ article[2] }}</td>
+                          <td>{{ article[3] }}</td>
+                          <td>{{ article[4] }}</td>
+                          <td><form action="/delete/{{article[0]}}" method="POST" onsubmit="return confirm('정말 삭제하시겠습니까?')"><button type="submit" class="btn btn-danger">DELETE</button></form></td>
+                        </tr>
+                    {% endfor %}
+                      </tbody>
+                    </table>
+                    <a href="/add_articles" class="btn btn-success">글 작성</a>
+                    </div>
+                    </div>
+                    </div>
+ 
+  </div>
+{% endblock %}

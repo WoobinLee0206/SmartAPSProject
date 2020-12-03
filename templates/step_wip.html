@@ -1,0 +1,43 @@
+{% extends "layouts.html" %}
+
+{% block body %}
+
+<canvas id="myChart"></canvas>
+
+{% endblock %}
+
+{%block extra_scripts%}
+<script>
+    new Chart(document.getElementById("myChart"),{"type":"line","data":{
+        "labels":{{target_date | safe}}, // x축
+        "datasets":[
+            {
+                "label":"PRESS",
+                "data":{{press | safe}},
+                "fill":false,
+                "borderColor":"rgb(255, 0, 0)",
+                "lineTension":0.1
+            },
+            {
+                "label":"PAINT",
+                "data":{{paint | safe}},
+                "fill":false,
+                "borderColor":"rgb(0, 255, 0)",
+                "lineTension":0.1
+            },
+            {
+                "label":"FINISH",
+                "data": {{finish | safe}},
+                "fill":false,
+                "borderColor":"rgb(0, 0, 255)",
+                "lineTension":0.1
+            }
+        ]
+        },
+        "options":{
+        }
+    });
+
+    </script>
+    
+{%endblock%}
